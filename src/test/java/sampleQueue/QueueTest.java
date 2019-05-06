@@ -23,7 +23,6 @@ class QueueTest {
 
 
 	@Test
-	@Disabled
 	@DisplayName("is instantiated with new Queue()")
 	void isInstantiatedWithNew() {
 		new Queue<>();
@@ -49,5 +48,38 @@ class QueueTest {
 		assertFalse(q.isEmpty());
 	}
 
+	@Test
+
+	@DisplayName("Queue should add ")
+	void VerifyQueueAdds() {
+	q.enqueue("1");
+	assertTrue(q.peek()=="1");
 	
+	}
+	
+	@Test
+	
+	@DisplayName("Queue should remove ")
+	public void testRemove() 
+    {
+		q.enqueue("3");
+        q.enqueue("1");
+        assertTrue(q.size()==2);
+        q.dequeue();
+        assertTrue(q.size()==1);
+        
+    }
+	
+@Test
+//this checks to make sure that enqueueing then dequeueing doesn't break isEmpty()
+public void isEmptyAfterRemove() {
+	q.enqueue("5");
+	q.dequeue();
+	assertTrue(q.isEmpty());
+}
+@Test
+public void CheckQueueSize() {
+	q.enqueue("3");
+	assertTrue(q.size()==1);
+}
 }
